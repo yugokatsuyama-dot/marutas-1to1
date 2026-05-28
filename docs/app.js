@@ -1,9 +1,10 @@
 "use strict";
 
 // Cloudflare Worker URL（共有データの読み書き先）
-// 例: "https://marutas-1to1.your-subdomain.workers.dev"
-// 未設定だと localStorage のみのローカルモードで動作（個人テスト用）
-const WORKER_URL = (localStorage.getItem("MARUTAS_WORKER_URL") || "").replace(/\/$/, "");
+// localStorage に MARUTAS_WORKER_URL があればそちらを優先（テスト/切替用）
+// 空文字にすると localStorage のみのローカルモードになる
+const DEFAULT_WORKER_URL = "https://marutas-1to1.yugo-katsuyama.workers.dev";
+const WORKER_URL = (localStorage.getItem("MARUTAS_WORKER_URL") ?? DEFAULT_WORKER_URL).replace(/\/$/, "");
 
 const STORAGE_KEY = "marutas_1to1_state_v1";
 const ME_KEY = "marutas_1to1_me_v1";

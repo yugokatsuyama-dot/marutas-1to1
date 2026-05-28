@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-05-28T02:56:52.820Z",
+  "updated_at": "2026-05-28T03:00:25.066Z",
   "members": [
     {
       "id": "jenne",
@@ -115,10 +115,8 @@
         {
           "dow": [
             "mon",
-            "tue",
             "wed",
-            "thu",
-            "fri"
+            "thu"
           ],
           "start": "21:30",
           "end": "23:59",
@@ -127,7 +125,7 @@
       ],
       "specific": [],
       "note": "夜は21:30以降になる。",
-      "updated_at": "2026-05-28T10:01:00+09:00"
+      "updated_at": "2026-05-28T03:00:25.066Z"
     }
   },
   "sessions": []

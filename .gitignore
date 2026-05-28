@@ -1,0 +1,20 @@
+# LINE トーク履歴（個人情報含むため public repo には絶対に含めない）
+\[LINE\]*.txt
+*マルタス*.txt
+
+# 開発環境設定
+.claude/
+.vscode/
+.idea/
+
+# OS / エディタ生成物
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Node / Cloudflare Worker（後で追加するときのため）
+node_modules/
+.wrangler/
+.dev.vars

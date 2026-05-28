@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>マルタス班1to1スケジューラ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>⤴️ マルタス班 1to1 スケジューラ</h1>
+    <div class="me-picker">
+      <label for="me-select">あなた: </label>
+      <select id="me-select"></select>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="dashboard">📊 進捗</button>
+    <button class="tab-btn" data-tab="availability">📅 空き枠</button>
+    <button class="tab-btn" data-tab="matching">✨ マッチング</button>
+    <button class="tab-btn" data-tab="report">✅ 完了報告</button>
+  </nav>
+
+  <main>
+    <!-- 📊 ダッシュボード -->
+    <section id="tab-dashboard" class="tab-panel active">
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-label">全体達成率</div>
+          <div class="stat-value" id="overall-rate">--%</div>
+          <div class="stat-sub" id="overall-detail">-- / 21 ペア</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">あなたの進捗</div>
+          <div class="stat-value" id="my-rate">--%</div>
+          <div class="stat-sub" id="my-detail">-- / 6 人</div>
+        </div>
+      </div>
+
+      <h2>進捗マトリクス</h2>
+      <p class="hint">緑=完了 / 黄=日程調整中 / 灰=未着手。クリックで詳細。</p>
+      <div class="matrix-wrap">
+        <table id="matrix"></table>
+      </div>
+
+      <h2>あなたの未完了相手</h2>
+      <ul id="my-pending"></ul>
+    </section>
+
+    <!-- 📅 空き枠 -->
+    <section id="tab-availability" class="tab-panel">
+      <h2>空き枠登録</h2>
+      <p class="hint">「あなた」として選択中のメンバーの空き枠を編集します。</p>
+
+      <h3>定期枠（毎週）</h3>
+      <div id="recurring-list"></div>
+      <button class="add-btn" id="add-recurring">＋ 定期枠を追加</button>
+
+      <h3>個別枠（特定日）</h3>
+      <div id="specific-list"></div>
+      <button class="add-btn" id="add-specific">＋ 個別枠を追加</button>
+
+      <h3>メモ</h3>
+      <textarea id="note-input" placeholder="例: 急ぎなら朝もOK、リアルは渋谷近辺希望、など"></textarea>
+
+      <div class="save-bar">
+        <button id="save-availability" class="primary-btn">保存</button>
+        <span id="save-status" class="save-status"></span>
+      </div>
+    </section>
+
+    <!-- ✨ マッチング -->
+    <section id="tab-matching" class="tab-panel">
+      <h2>マッチング候補</h2>
+      <p class="hint">未完了ペアの「合う日時」を直近14日から自動抽出。候補が少ないペアを優先表示。</p>
+      <div class="filter-bar">
+        <label><input type="checkbox" id="filter-mine" /> 自分が含まれるペアのみ</label>
+        <label>形式:
+          <select id="filter-mode">
+            <option value="all">すべて</option>
+            <option value="any">どちらでも</option>
+            <option value="online">オンラインのみ</option>
+            <option value="real">リアルのみ</option>
+          </select>
+        </label>
+      </div>
+      <div id="matching-list"></div>
+    </section>
+
+    <!-- ✅ 完了報告 -->
+    <section id="tab-report" class="tab-panel">
+      <h2>1to1 完了報告</h2>
+      <p class="hint">実施した1to1を記録します。信頼ベースで相手側の承認は不要です。</p>
+      <form id="report-form">
+        <label>相手
+          <select id="report-partner" required></select>
+        </label>
+        <label>実施日
+          <input type="date" id="report-date" required />
+        </label>
+        <label>開始時刻
+          <input type="time" id="report-start" required />
+        </label>
+        <label>長さ
+          <select id="report-duration">
+            <option value="60">60分</option>
+            <option value="75">75分</option>
+            <option value="90" selected>90分</option>
+            <option value="120">120分</option>
+          </select>
+        </label>
+        <label>形式
+          <select id="report-mode">
+            <option value="online">オンライン</option>
+            <option value="real">リアル</option>
+          </select>
+        </label>
+        <button type="submit" class="primary-btn">記録</button>
+      </form>
+
+      <h3>記録済みセッション</h3>
+      <ul id="sessions-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <small>マルタス班盛り上げ隊⤴️ / 3か月で21ペア完遂を目指す</small>
+    <small id="data-source">data source: <span id="data-source-label">localStorage</span></small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

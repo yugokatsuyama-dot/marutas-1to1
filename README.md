@@ -4,7 +4,7 @@ marutasu の分科会「マルタス班盛り上げ隊⤴️」メンバー7名�
 
 ## 🌐 公開URL
 
-GitHub Pages: （リポジトリ作成・Pages有効化後に発行されるURLをここに記載）
+**https://yugokatsuyama-dot.github.io/marutas-1to1/**
 
 ## 🎯 機能
 

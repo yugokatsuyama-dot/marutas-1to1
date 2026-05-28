@@ -1,5 +1,10 @@
 "use strict";
 
+// Cloudflare Worker URL（共有データの読み書き先）
+// 例: "https://marutas-1to1.your-subdomain.workers.dev"
+// 未設定だと localStorage のみのローカルモードで動作（個人テスト用）
+const WORKER_URL = (localStorage.getItem("MARUTAS_WORKER_URL") || "").replace(/\/$/, "");
+
 const STORAGE_KEY = "marutas_1to1_state_v1";
 const ME_KEY = "marutas_1to1_me_v1";
 const DOW_LABELS = { mon:"月", tue:"火", wed:"水", thu:"木", fri:"金", sat:"土", sun:"日" };
@@ -25,30 +30,61 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 // ---------- Data layer ----------
 async function loadState() {
+  // 本番（Worker 設定済み）: 常に最新の共有データを Worker 経由で取得
+  if (WORKER_URL) {
+    try {
+      const res = await fetch(WORKER_URL + "/api/state", { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      setDataSourceLabel("🟢 共有サーバー");
+      return data;
+    } catch (e) {
+      console.error("Worker GET 失敗", e);
+      setDataSourceLabel("🔴 共有サーバー接続失敗", true);
+    }
+  }
+  // 開発モード: localStorage に下書きがあればそれを優先、なければ state.json
   const local = localStorage.getItem(STORAGE_KEY);
   if (local) {
     try {
-      const parsed = JSON.parse(local);
-      document.getElementById("data-source-label").textContent = "localStorage (未同期)";
-      return parsed;
+      setDataSourceLabel("localStorage（ローカル下書き）");
+      return JSON.parse(local);
     } catch (e) { /* fall through */ }
   }
   try {
     const res = await fetch("data/state.json", { cache: "no-store" });
     const data = await res.json();
-    document.getElementById("data-source-label").textContent = "data/state.json";
+    setDataSourceLabel("data/state.json（ローカル初期データ）");
     return data;
   } catch (e) {
-    console.error("state.json の取得に失敗", e);
-    document.getElementById("data-source-label").textContent = "デフォルト";
+    setDataSourceLabel("デフォルト");
     return { schema_version: 1, members: [], availability: {}, sessions: [] };
   }
 }
 
-function persist() {
+function setDataSourceLabel(text, isError) {
+  const el = document.getElementById("data-source-label");
+  if (!el) return;
+  el.textContent = text;
+  el.style.color = isError ? "#dc2626" : "";
+}
+
+// localStorage 退避（Worker 失敗時のドラフト保存用）
+function persistLocal() {
   state.updated_at = new Date().toISOString();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  document.getElementById("data-source-label").textContent = "localStorage (未同期)";
+}
+
+async function workerPost(path, body) {
+  if (!WORKER_URL) throw new Error("Worker URL 未設定");
+  const res = await fetch(WORKER_URL + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || ("HTTP " + res.status));
+  return data;
 }
 
 // ---------- Header ----------
@@ -203,14 +239,34 @@ function bindAvailabilityButtons() {
     state.availability[me].specific.push({ date: todayISO(), start: "10:00", end: "11:00", mode: "any" });
     renderAvailability();
   });
-  document.getElementById("save-availability").addEventListener("click", () => {
-    ensureMember(me);
-    state.availability[me].note = document.getElementById("note-input").value;
-    state.availability[me].updated_at = new Date().toISOString();
-    persist();
-    flashSaveStatus("✓ 保存しました（localStorage）", "success");
-    renderAll();
-  });
+  document.getElementById("save-availability").addEventListener("click", saveAvailability);
+}
+
+async function saveAvailability() {
+  ensureMember(me);
+  state.availability[me].note = document.getElementById("note-input").value;
+  state.availability[me].updated_at = new Date().toISOString();
+
+  if (WORKER_URL) {
+    flashSaveStatus("保存中…");
+    try {
+      const data = await workerPost("/api/availability", {
+        memberId: me,
+        recurring: state.availability[me].recurring,
+        specific: state.availability[me].specific,
+        note: state.availability[me].note,
+      });
+      state = data.state;
+      flashSaveStatus("✓ 共有サーバーに保存しました", "success");
+    } catch (e) {
+      persistLocal();
+      flashSaveStatus("✗ サーバー保存失敗: " + e.message + "（localStorageには退避済）", "error");
+    }
+  } else {
+    persistLocal();
+    flashSaveStatus("✓ 保存しました（localStorage / ローカルのみ）", "success");
+  }
+  renderAll();
 }
 
 function ensureMember(id) {
@@ -425,9 +481,8 @@ function renderMatching() {
 
 // ---------- Report tab ----------
 function bindReportForm() {
-  const sel = document.getElementById("report-partner");
   const form = document.getElementById("report-form");
-  form.addEventListener("submit", e => {
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     const partner = document.getElementById("report-partner").value;
     const date = document.getElementById("report-date").value;
@@ -435,19 +490,37 @@ function bindReportForm() {
     const duration = parseInt(document.getElementById("report-duration").value, 10);
     const mode = document.getElementById("report-mode").value;
     if (!partner || !date || !start) return;
-    state.sessions.push({
+
+    const session = {
       pair: [me, partner].sort(),
       datetime: `${date}T${start}:00+09:00`,
       duration_min: duration,
       mode,
       reported_by: me,
-      reported_at: new Date().toISOString()
-    });
-    persist();
-    form.reset();
-    document.getElementById("report-duration").value = "90";
-    alert("記録しました！");
-    renderAll();
+      reported_at: new Date().toISOString(),
+    };
+
+    const btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    try {
+      if (WORKER_URL) {
+        const data = await workerPost("/api/sessions", { action: "add", session });
+        state = data.state;
+        alert("✓ 共有サーバーに記録しました！");
+      } else {
+        if (!state.sessions) state.sessions = [];
+        state.sessions.push(session);
+        persistLocal();
+        alert("✓ 記録しました（localStorage / ローカルのみ）");
+      }
+      form.reset();
+      document.getElementById("report-duration").value = "90";
+      renderAll();
+    } catch (e2) {
+      alert("✗ 記録失敗: " + e2.message);
+    } finally {
+      btn.disabled = false;
+    }
   });
 }
 

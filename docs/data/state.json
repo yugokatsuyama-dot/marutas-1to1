@@ -1,41 +1,146 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-05-28T00:00:00+09:00",
+  "updated_at": "2026-05-28T02:54:38.320Z",
   "members": [
-    { "id": "jenne",     "name": "hisanori tada", "alias": "ジェンヌ" },
-    { "id": "nishimura", "name": "西村 僚",       "alias": "" },
-    { "id": "okada",     "name": "Kana Okada",    "alias": "" },
-    { "id": "ogura",     "name": "小倉よしき",     "alias": "" },
-    { "id": "sato",      "name": "佐藤慎吾",       "alias": "" },
-    { "id": "goh",       "name": "Goh",           "alias": "" },
-    { "id": "katsuyama", "name": "かつやまゆうご", "alias": "" }
+    {
+      "id": "jenne",
+      "name": "hisanori tada",
+      "alias": "ジェンヌ"
+    },
+    {
+      "id": "nishimura",
+      "name": "西村 僚",
+      "alias": ""
+    },
+    {
+      "id": "okada",
+      "name": "Kana Okada",
+      "alias": ""
+    },
+    {
+      "id": "ogura",
+      "name": "小倉よしき",
+      "alias": ""
+    },
+    {
+      "id": "sato",
+      "name": "佐藤慎吾",
+      "alias": ""
+    },
+    {
+      "id": "goh",
+      "name": "Goh",
+      "alias": ""
+    },
+    {
+      "id": "katsuyama",
+      "name": "かつやまゆうご",
+      "alias": ""
+    }
   ],
   "availability": {
     "jenne": {
       "recurring": [],
       "specific": [
-        { "date": "2026-05-28", "start": "13:00", "end": "15:00", "mode": "any" },
-        { "date": "2026-06-03", "start": "10:00", "end": "20:00", "mode": "any" },
-        { "date": "2026-06-04", "start": "10:00", "end": "16:00", "mode": "any" },
-        { "date": "2026-06-05", "start": "13:00", "end": "16:00", "mode": "any" }
+        {
+          "date": "2026-05-28",
+          "start": "13:00",
+          "end": "15:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-03",
+          "start": "10:00",
+          "end": "20:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-04",
+          "start": "10:00",
+          "end": "16:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-05",
+          "start": "13:00",
+          "end": "16:00",
+          "mode": "any"
+        }
       ],
       "note": "VPKだからリアル寄り。オンラインも可。6月分は2日前までに連絡希望。",
       "updated_at": "2026-05-28T09:12:00+09:00"
     },
-    "nishimura": { "recurring": [], "specific": [], "note": "", "updated_at": "" },
-    "okada":     { "recurring": [], "specific": [], "note": "", "updated_at": "" },
-    "ogura":     { "recurring": [], "specific": [], "note": "", "updated_at": "" },
-    "sato":      { "recurring": [], "specific": [], "note": "", "updated_at": "" },
-    "goh":       { "recurring": [], "specific": [], "note": "", "updated_at": "" },
+    "nishimura": {
+      "recurring": [],
+      "specific": [],
+      "note": "",
+      "updated_at": ""
+    },
+    "okada": {
+      "recurring": [],
+      "specific": [],
+      "note": "",
+      "updated_at": ""
+    },
+    "ogura": {
+      "recurring": [],
+      "specific": [],
+      "note": "",
+      "updated_at": ""
+    },
+    "sato": {
+      "recurring": [],
+      "specific": [],
+      "note": "",
+      "updated_at": ""
+    },
+    "goh": {
+      "recurring": [],
+      "specific": [],
+      "note": "",
+      "updated_at": ""
+    },
     "katsuyama": {
       "recurring": [
-        { "dow": ["mon","wed","thu"], "start": "11:00", "end": "15:00", "mode": "any" },
-        { "dow": ["mon","tue","wed","thu","fri"], "start": "21:30", "end": "23:59", "mode": "online" }
+        {
+          "dow": [
+            "mon",
+            "wed",
+            "thu"
+          ],
+          "start": "11:00",
+          "end": "15:00",
+          "mode": "any"
+        },
+        {
+          "dow": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri"
+          ],
+          "start": "21:30",
+          "end": "23:59",
+          "mode": "online"
+        }
       ],
       "specific": [],
       "note": "夜は21:30以降になる。",
       "updated_at": "2026-05-28T10:01:00+09:00"
     }
   },
-  "sessions": []
+  "sessions": [
+    {
+      "pair": [
+        "__test_a",
+        "__test_b"
+      ],
+      "datetime": "2026-01-01T00:00:00+09:00",
+      "duration_min": 60,
+      "mode": "online",
+      "reported_by": "__test",
+      "reported_at": "2026-05-28T02:54:38.320Z"
+    }
+  ]
 }

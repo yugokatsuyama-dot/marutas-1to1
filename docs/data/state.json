@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-05-28T02:54:38.320Z",
+  "updated_at": "2026-05-28T02:56:52.820Z",
   "members": [
     {
       "id": "jenne",
@@ -130,17 +130,5 @@
       "updated_at": "2026-05-28T10:01:00+09:00"
     }
   },
-  "sessions": [
-    {
-      "pair": [
-        "__test_a",
-        "__test_b"
-      ],
-      "datetime": "2026-01-01T00:00:00+09:00",
-      "duration_min": 60,
-      "mode": "online",
-      "reported_by": "__test",
-      "reported_at": "2026-05-28T02:54:38.320Z"
-    }
-  ]
+  "sessions": []
 }

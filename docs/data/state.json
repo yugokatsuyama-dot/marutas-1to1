@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-05-28T03:33:54.535Z",
+  "updated_at": "2026-05-28T03:39:23.285Z",
   "members": [
     {
       "id": "jenne",
@@ -128,5 +128,17 @@
       "updated_at": "2026-05-28T03:00:25.066Z"
     }
   },
-  "sessions": []
+  "sessions": [
+    {
+      "pair": [
+        "jenne",
+        "katsuyama"
+      ],
+      "datetime": "2026-06-03T11:30:00+09:00",
+      "duration_min": 90,
+      "mode": "real",
+      "reported_by": "katsuyama",
+      "reported_at": "2026-05-28T03:39:23.285Z"
+    }
+  ]
 }

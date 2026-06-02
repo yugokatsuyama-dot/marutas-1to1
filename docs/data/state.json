@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-05-31T23:57:43.686Z",
+  "updated_at": "2026-06-02T08:26:35.014Z",
   "members": [
     {
       "id": "jenne",
@@ -98,13 +98,13 @@
         },
         {
           "date": "2026-06-19",
-          "start": "10:00",
+          "start": "13:00",
           "end": "16:00",
           "mode": "any"
         }
       ],
       "note": "VPKだからリアル寄り。オンラインも可。6月分は2日前までに連絡希望。",
-      "updated_at": "2026-05-31T23:57:43.686Z"
+      "updated_at": "2026-06-02T08:26:35.014Z"
     },
     "nishimura": {
       "recurring": [],

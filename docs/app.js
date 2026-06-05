@@ -12,7 +12,7 @@ const DOW_LABELS = { mon:"月", tue:"火", wed:"水", thu:"木", fri:"金", sat:
 const DOW_ORDER = ["mon","tue","wed","thu","fri","sat","sun"];
 const MODE_LABELS = { any: "どちらでも", online: "オンライン", real: "リアル" };
 const MATCHING_DAYS = 14;
-const MIN_DURATION_MIN = 60;
+const MIN_DURATION_MIN = 30;
 
 let state = null;
 let me = null;

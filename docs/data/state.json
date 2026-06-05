@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-05T00:42:35.402Z",
+  "updated_at": "2026-06-05T00:53:49.349Z",
   "members": [
     {
       "id": "jenne",
@@ -250,6 +250,17 @@
       "mode": "real",
       "reported_by": "jenne",
       "reported_at": "2026-06-04T03:07:38.262Z"
+    },
+    {
+      "pair": [
+        "jenne",
+        "nishimura"
+      ],
+      "datetime": "2026-06-15T19:00:00+09:00",
+      "duration_min": 60,
+      "mode": "online",
+      "reported_by": "nishimura",
+      "reported_at": "2026-06-05T00:53:49.349Z"
     }
   ]
 }

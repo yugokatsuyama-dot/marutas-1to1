@@ -11,7 +11,7 @@ const ME_KEY = "marutas_1to1_me_v1";
 const DOW_LABELS = { mon:"月", tue:"火", wed:"水", thu:"木", fri:"金", sat:"土", sun:"日" };
 const DOW_ORDER = ["mon","tue","wed","thu","fri","sat","sun"];
 const MODE_LABELS = { any: "どちらでも", online: "オンライン", real: "リアル" };
-const MATCHING_DAYS = 14;
+const MATCHING_DAYS = 90; // 班3か月成果目標期間（〜2026/8末）をカバー
 const MIN_DURATION_MIN = 30;
 
 let state = null;

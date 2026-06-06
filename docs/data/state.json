@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-05T07:39:57.580Z",
+  "updated_at": "2026-06-06T06:00:52.200Z",
   "members": [
     {
       "id": "jenne",
@@ -225,10 +225,27 @@
       "updated_at": "2026-06-03T10:19:31.234Z"
     },
     "goh": {
-      "recurring": [],
-      "specific": [],
+      "recurring": [
+        {
+          "dow": [
+            "mon",
+            "fri"
+          ],
+          "start": "07:30",
+          "end": "09:00",
+          "mode": "online"
+        }
+      ],
+      "specific": [
+        {
+          "date": "2026-06-06",
+          "start": "10:00",
+          "end": "11:00",
+          "mode": "any"
+        }
+      ],
       "note": "",
-      "updated_at": ""
+      "updated_at": "2026-06-06T06:00:52.200Z"
     },
     "katsuyama": {
       "recurring": [

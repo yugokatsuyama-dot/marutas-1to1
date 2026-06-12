@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-12T15:26:54.072Z",
+  "updated_at": "2026-06-12T19:15:21.549Z",
   "members": [
     {
       "id": "jenne",
@@ -41,9 +41,58 @@
   "availability": {
     "jenne": {
       "recurring": [],
-      "specific": [],
-      "note": "",
-      "updated_at": "2026-06-12T15:24:06.973Z"
+      "specific": [
+        {
+          "date": "2026-06-16",
+          "start": "10:00",
+          "end": "14:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-19",
+          "start": "13:00",
+          "end": "21:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-22",
+          "start": "10:00",
+          "end": "21:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-23",
+          "start": "10:00",
+          "end": "21:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-25",
+          "start": "10:00",
+          "end": "21:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-27",
+          "start": "10:00",
+          "end": "21:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-29",
+          "start": "10:00",
+          "end": "17:00",
+          "mode": "any"
+        },
+        {
+          "date": "2026-06-30",
+          "start": "10:00",
+          "end": "21:00",
+          "mode": "any"
+        }
+      ],
+      "note": "2日前までにマッチング希望",
+      "updated_at": "2026-06-12T19:15:21.549Z"
     },
     "nishimura": {
       "recurring": [

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-12T19:15:45.912Z",
+  "updated_at": "2026-06-16T10:40:19.589Z",
   "members": [
     {
       "id": "jenne",
@@ -314,6 +314,17 @@
       "mode": "real",
       "reported_by": "katsuyama",
       "reported_at": "2026-06-05T07:39:57.580Z"
+    },
+    {
+      "pair": [
+        "jenne",
+        "okada"
+      ],
+      "datetime": "2026-06-16T14:00:00+09:00",
+      "duration_min": 90,
+      "mode": "real",
+      "reported_by": "jenne",
+      "reported_at": "2026-06-16T10:40:19.589Z"
     }
   ]
 }

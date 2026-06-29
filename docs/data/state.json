@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-27T03:47:27.000Z",
+  "updated_at": "2026-06-29T14:12:52.852Z",
   "members": [
     {
       "id": "jenne",
@@ -244,12 +244,6 @@
           "mode": "any"
         },
         {
-          "date": "2026-07-05",
-          "start": "10:00",
-          "end": "20:00",
-          "mode": "any"
-        },
-        {
           "date": "2026-07-06",
           "start": "18:30",
           "end": "23:00",
@@ -368,10 +362,16 @@
           "start": "18:30",
           "end": "23:00",
           "mode": "any"
+        },
+        {
+          "date": "2026-07-03",
+          "start": "18:30",
+          "end": "23:00",
+          "mode": "any"
         }
       ],
       "note": "",
-      "updated_at": "2026-06-27T03:47:27.000Z"
+      "updated_at": "2026-06-29T14:12:52.852Z"
     },
     "katsuyama": {
       "recurring": [

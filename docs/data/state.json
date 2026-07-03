@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-03T12:10:38.789Z",
+  "updated_at": "2026-07-03T12:16:31.329Z",
   "members": [
     {
       "id": "jenne",
@@ -358,8 +358,8 @@
           "mode": "any"
         }
       ],
-      "note": "",
-      "updated_at": "2026-07-03T12:10:38.789Z"
+      "note": "目黒・中目黒・日本橋を起点に移動します。そこから1時間ならどこでも行くよ!",
+      "updated_at": "2026-07-03T12:16:31.329Z"
     },
     "katsuyama": {
       "recurring": [

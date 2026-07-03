@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-01T03:29:39.662Z",
+  "updated_at": "2026-07-03T12:10:38.789Z",
   "members": [
     {
       "id": "jenne",
@@ -239,7 +239,7 @@
         },
         {
           "date": "2026-07-04",
-          "start": "10:00",
+          "start": "12:00",
           "end": "23:00",
           "mode": "any"
         },
@@ -359,7 +359,7 @@
         }
       ],
       "note": "",
-      "updated_at": "2026-07-01T03:29:39.662Z"
+      "updated_at": "2026-07-03T12:10:38.789Z"
     },
     "katsuyama": {
       "recurring": [

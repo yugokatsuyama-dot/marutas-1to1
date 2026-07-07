@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-07T09:23:46.007Z",
+  "updated_at": "2026-07-07T09:23:47.439Z",
   "members": [
     {
       "id": "jenne",
@@ -239,7 +239,7 @@
         }
       ],
       "note": "",
-      "updated_at": "2026-07-07T09:23:46.007Z"
+      "updated_at": "2026-07-07T09:23:47.439Z"
     },
     "ogura": {
       "recurring": [],

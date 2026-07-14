@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-14T22:35:52.017Z",
+  "updated_at": "2026-07-14T22:36:38.494Z",
   "members": [
     {
       "id": "jenne",
@@ -267,10 +267,16 @@
           "start": "16:00",
           "end": "21:00",
           "mode": "any"
+        },
+        {
+          "date": "2026-07-17",
+          "start": "19:00",
+          "end": "21:00",
+          "mode": "any"
         }
       ],
       "note": "",
-      "updated_at": "2026-06-03T10:19:31.234Z"
+      "updated_at": "2026-07-14T22:36:38.494Z"
     },
     "goh": {
       "recurring": [

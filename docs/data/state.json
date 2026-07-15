@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-14T22:53:55.149Z",
+  "updated_at": "2026-07-15T13:21:34.191Z",
   "members": [
     {
       "id": "jenne",
@@ -549,6 +549,17 @@
       "mode": "real",
       "reported_by": "okada",
       "reported_at": "2026-07-14T22:30:23.493Z"
+    },
+    {
+      "pair": [
+        "goh",
+        "katsuyama"
+      ],
+      "datetime": "2026-07-15T21:30:00+09:00",
+      "duration_min": 60,
+      "mode": "online",
+      "reported_by": "goh",
+      "reported_at": "2026-07-15T13:21:34.191Z"
     }
   ]
 }

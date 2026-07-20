@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-15T13:21:34.191Z",
+  "updated_at": "2026-07-20T11:20:51.004Z",
   "members": [
     {
       "id": "jenne",
@@ -560,6 +560,17 @@
       "mode": "online",
       "reported_by": "goh",
       "reported_at": "2026-07-15T13:21:34.191Z"
+    },
+    {
+      "pair": [
+        "goh",
+        "sato"
+      ],
+      "datetime": "2026-07-17T19:00:00+09:00",
+      "duration_min": 120,
+      "mode": "real",
+      "reported_by": "goh",
+      "reported_at": "2026-07-20T11:20:51.004Z"
     }
   ]
 }

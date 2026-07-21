@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T11:20:51.004Z",
+  "updated_at": "2026-07-21T14:34:39.755Z",
   "members": [
     {
       "id": "jenne",
@@ -571,6 +571,17 @@
       "mode": "real",
       "reported_by": "goh",
       "reported_at": "2026-07-20T11:20:51.004Z"
+    },
+    {
+      "pair": [
+        "goh",
+        "okada"
+      ],
+      "datetime": "2026-07-21T19:50:00+09:00",
+      "duration_min": 120,
+      "mode": "real",
+      "reported_by": "goh",
+      "reported_at": "2026-07-21T14:34:39.755Z"
     }
   ]
 }
